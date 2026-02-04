@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+// Cuando se trabaja una API se necesita una capa intermedia entre el controlador 
+// y la respuesta al cliente que permite controlar la estructura de la salidad de datos de la API. 
+// Esto es posible mendiante el uso de clases Resource.
+
+class UserResource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'lastname' => $this->lastname,
+            'username' => $this->username,
+            'email' => $this->email,
+            'dui' => $this->dui,
+            'phone_number' => $this->phone_number,
+            'hiring_date' => $this->hiring_date,
+            'birth_date' => $this->birth_date,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'deleted_at' => $this->deleted_at,
+        ];
+    }
+}
